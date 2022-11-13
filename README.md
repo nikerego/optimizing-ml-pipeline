@@ -27,21 +27,23 @@ This is accomplished with the help of `train.py`. There are then three broad cat
 **1. Sampling Methods:**
 
 This helps us choose suitable parameters for our model. We have several choices such as random sampling, grid search, 
-Bayesian sampling to name a few. These will vary based on the model of interest and can be continuous or discrete values.
+bayesian sampling to name a few. These will vary based on the model of interest and can be continuous or discrete values.
 
 **2. Early Stopping Policy:**
+
 This part of the pipeline establishes the stopping criterion for the chosen sampling method to automatically terminate. 
 It helps to eliminate unnecessary compute time.
 
 We use a BanditPolicy as our stopping criteria with evaluation interval at 2 and slack factor equals 0.1. 
 
 **3. Performance Metrics:**
-A performance metric is required to be specified in the configuration so the optimizer as well as we need to specify whether 
-this metric has to be maximized or minimized. The parameters are tuned with accuracy is our performance metric with the 
+
+A performance metric is required to be specified in the configuration so the optimizer knows whether 
+this metric has to be maximized or minimized. The parameters are tuned with accuracy as the performance metric with the 
 goal to maximize it. 
 
-I chose a RandomParameter sampler. I chose this to avoid long compute time as compared to doing an exhaustive grid search 
-This would also not result in substantial loss in accuracy.
+I chose a RandomParameter sampler to avoid long compute time as compared to doing an exhaustive grid search with minimal
+loss in accuracy.
 The parameter C is used to prevent over fitting while the max_iter helps reduce the overall compute time. Choice of these
 two parameters helps the algorithm search over the appropriate space without and prevents the process from running too long.
 
@@ -73,7 +75,7 @@ There is a small difference in performance between the two models. The best Hype
 accuracy of 90.88% while AutoML (VotingEnsemble) model came in with an accuracy of 91.88%. The HyperDrive architecture is
 highly customizable to tune one model allowing a user to explore configurations of sampling, early stopping and parameter tuning while
 AutoML tends to be a more robust approach to explore a wide variety of models to gauge overall performance with minimal
-modifications to code. There is a very slight difference in accuracy (1 percentage point). This could be because the 
+modifications to any code. There is a very slight difference in accuracy (1 percentage point). This could be because the 
 VotingEnsemble might fit the data slightly better as compared to the logistic regression given it is an ensemble method.
 
 ## Future work
@@ -85,4 +87,5 @@ more records as well as updated records to train our model on as time passes. Th
 accuracy and prevent data drift.
 
 ## Proof of cluster clean up
-![cluster_cleanup](proof-of-cluster-cleanup.jpeg)
+
+<img alt="proof-of-cluster-cleanup" src="proof-of-cluster-cleanup.jpeg"/>
