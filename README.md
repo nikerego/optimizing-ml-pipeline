@@ -87,6 +87,4 @@ more records as well as updated records to train our model on as time passes. Th
 accuracy and prevent data drift.
 
 ## Proof of cluster clean up
-<p align="left">
-<img alt="proof-of-cluster-cleanup" src="proof-of-cluster-cleanup.jpeg"/>
-</p>
+Image included: proof-of-cluster-cleanup.jpeg
