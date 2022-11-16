@@ -112,4 +112,4 @@ more records as well as updated records to train our model on as time passes. Th
 accuracy and prevent data drift.
 
 ## Proof of cluster clean up
-![Cluster Cleanup Proof](proof-of-cluster-cleanup.jpg)
+![Cluster Cleanup Proof](proof-of-cluster-cleanup.png)
