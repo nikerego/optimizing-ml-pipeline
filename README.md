@@ -22,7 +22,16 @@ The best performing HyperDrive Logistic Regression model came in with an accurac
 ## Scikit-learn Pipeline
 
 The first part of the process involves setting up the pipeline for cleaning and preprocessing the data for use in our ML pipelines.
-This is accomplished with the help of `train.py`. There are then three broad categories which cover the ML pipeline:
+The dataset is called bankmarketing_train.csv file and is stored on Azure blob storage. The dataset contains data on 
+applicants for a banking service. The dataset contains 32950 observations and has 21 columns. We are looking to predict 
+the value of y as 'yes' or 'no'. The preprocessing is accomplished with the help of `train.py`. This function returns two
+datasets x and y. x is the features with 39 columns and y is the target.
+
+The classification model used for the HyperDrive pipeline is a Logistic Regression model. the logistic model is a statistical
+model that models the probability of an event taking place by having the log-odds for the event be a linear combination 
+of one or more independent variables. 
+
+There are then three broad categories which cover the ML pipeline:
 
 **1. Sampling Methods:**
 
@@ -48,9 +57,14 @@ The parameter C is used to prevent over fitting while the max_iter helps reduce 
 two parameters helps the algorithm search over the appropriate space without and prevents the process from running too long.
 
 
-I have set the evaluation_interval to 2 and the slack_factor to 0.1. This evaluates the primary metric every 2 iteration 
-and if the value falls outside top 10% of the primary metric then the training process will stop. This can prevent over 
-fitting to the training data.
+I have chosen a BanditPolicy and set the evaluation_interval to 2 and the slack_factor to 0.1. This evaluates the primary 
+metric every 2 iteration and if the value falls outside top 10% of the primary metric then the training process will stop. 
+This saves us from continuing to explore hyperparameters that don't show promise of helping reach our target 
+metric. It prevents experiments from running for a long time and using up resources.
+
+You can use a bandit policy to stop a run if the target performance metric underperforms the best run so far by a specified margin.
+In our case this is 10% while a Median stopping policy abandons the run where the target performance metric is worse than the 
+median of the running averages for all runs. This can significantly bring down total compute time.
 
 ## AutoML
 The AutoML configuration we have specified is as follows:
@@ -65,9 +79,20 @@ automl_config = AutoMLConfig(
  ```
 
 AutoML evaluates a wide variety of models and chooses the one which performs the best in terms of the primary metric
-specified.
+specified. In our case this is accuracy.
 
-AutoML found that the best performing model was VotingEnsemble with an accuracy of 91.88%
+AutoML includes guardrails from it's exploration of the data which is illustrated in the image below. The size of the 
+smallest class is 3,692 and the number of samples in the training data is 32,950.
+![AutoML Guardrails](AutoML-guardrails.png)
+
+It identified VotingEnsemble as the best model stopping at iteration 29.
+![AutoML Iteration Pipeline](AutoML-iter_pipeline.png)
+
+Using the print_model function on the AutoML VotingEnsemble revealed greater details on the model.
+
+
+Although most models perform fairly similar, AutoML found that the best performing model was VotingEnsemble 
+with an accuracy of 91.88%
 
 ## Pipeline comparison
 
@@ -87,4 +112,4 @@ more records as well as updated records to train our model on as time passes. Th
 accuracy and prevent data drift.
 
 ## Proof of cluster clean up
-Image included: proof-of-cluster-cleanup.jpeg
+![Cluster Cleanup Proof](proof-of-cluster-cleanup.jpg)
