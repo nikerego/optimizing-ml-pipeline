@@ -25,7 +25,7 @@ The first part of the process involves setting up the pipeline for cleaning and 
 The dataset is called bankmarketing_train.csv file and is stored on Azure blob storage. The dataset contains data on 
 applicants for a banking service. The dataset contains 32950 observations and has 21 columns. We are looking to predict 
 the value of y as 'yes' or 'no'. The preprocessing is accomplished with the help of `train.py`. This function returns two
-datasets x and y. x is the features with 39 columns and y is the target.
+datasets x and y. x is the feature dataset with 39 columns and y is the target dataset.
 
 The classification model used for the HyperDrive pipeline is a Logistic Regression model. the logistic model is a statistical
 model that models the probability of an event taking place by having the log-odds for the event be a linear combination 
@@ -62,9 +62,10 @@ metric every 2 iteration and if the value falls outside top 10% of the primary m
 This saves us from continuing to explore hyperparameters that don't show promise of helping reach our target 
 metric. It prevents experiments from running for a long time and using up resources.
 
-You can use a bandit policy to stop a run if the target performance metric underperforms the best run so far by a specified margin.
-In our case this is 10% while a Median stopping policy abandons the run where the target performance metric is worse than the 
-median of the running averages for all runs. This can significantly bring down total compute time.
+We use a bandit policy to stop a run if the target performance metric underperforms the best run so far by a specified margin.
+In our case this is 10%. A Median stopping policy on the other hand abandons the run where the target performance metric 
+is worse than the median of the running averages for all runs. Using a bandit policy can significantly bring down total
+compute time.
 
 ## AutoML
 The AutoML configuration we have specified is as follows:
