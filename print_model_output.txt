@@ -1,0 +1,208 @@
+datatransformer
+{'enable_dnn': False,
+ 'enable_feature_sweeping': True,
+ 'feature_sweeping_config': {},
+ 'feature_sweeping_timeout': 86400,
+ 'featurization_config': None,
+ 'force_text_dnn': False,
+ 'is_cross_validation': True,
+ 'is_onnx_compatible': False,
+ 'observer': None,
+ 'task': 'classification',
+ 'working_dir': '/mnt/batch/tasks/shared/LS_root/mounts/clusters/my-compute/code/Users/odl_user_215754'}
+
+prefittedsoftvotingclassifier
+{'estimators': ['21', '0', '22', '3', '18', '13', '2'],
+ 'weights': [0.1, 0.2, 0.2, 0.2, 0.1, 0.1, 0.1]}
+
+21 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': False,
+ 'with_std': False}
+
+21 - xgboostclassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.5,
+ 'eta': 0.2,
+ 'gamma': 0,
+ 'gpu_id': -1,
+ 'importance_type': 'gain',
+ 'interaction_constraints': '',
+ 'learning_rate': 0.200000003,
+ 'max_delta_step': 0,
+ 'max_depth': 7,
+ 'max_leaves': 7,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'monotone_constraints': '()',
+ 'n_estimators': 25,
+ 'n_jobs': 1,
+ 'num_parallel_tree': 1,
+ 'objective': 'reg:logistic',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 0.20833333333333334,
+ 'scale_pos_weight': 1,
+ 'subsample': 1,
+ 'tree_method': 'auto',
+ 'use_label_encoder': True,
+ 'validate_parameters': 1,
+ 'verbose': -10,
+ 'verbosity': 0}
+
+0 - maxabsscaler
+{'copy': True}
+
+0 - lightgbmclassifier
+{'min_data_in_leaf': 20,
+ 'n_jobs': 1,
+ 'problem_info': ProblemInfo(gpu_training_param_dict={'processing_unit_type': 'cpu'}),
+ 'random_state': None}
+
+22 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': False,
+ 'with_std': True}
+
+22 - lightgbmclassifier
+{'boosting_type': 'gbdt',
+ 'colsample_bytree': 0.4955555555555555,
+ 'learning_rate': 0.05789894736842106,
+ 'max_bin': 210,
+ 'max_depth': 5,
+ 'min_child_weight': 0,
+ 'min_data_in_leaf': 0.07931241379310346,
+ 'min_split_gain': 0.3684210526315789,
+ 'n_estimators': 600,
+ 'n_jobs': 1,
+ 'num_leaves': 137,
+ 'problem_info': ProblemInfo(gpu_training_param_dict={'processing_unit_type': 'cpu'}),
+ 'random_state': None,
+ 'reg_alpha': 0.5789473684210527,
+ 'reg_lambda': 0.42105263157894735,
+ 'subsample': 0.05}
+
+3 - sparsenormalizer
+{'copy': True, 'norm': 'l2'}
+
+3 - xgboostclassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.7,
+ 'eta': 0.01,
+ 'gamma': 0.01,
+ 'gpu_id': -1,
+ 'importance_type': 'gain',
+ 'interaction_constraints': '',
+ 'learning_rate': 0.00999999978,
+ 'max_delta_step': 0,
+ 'max_depth': 7,
+ 'max_leaves': 31,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'monotone_constraints': '()',
+ 'n_estimators': 10,
+ 'n_jobs': 1,
+ 'num_parallel_tree': 1,
+ 'objective': 'reg:logistic',
+ 'random_state': 0,
+ 'reg_alpha': 2.1875,
+ 'reg_lambda': 1.0416666666666667,
+ 'scale_pos_weight': 1,
+ 'subsample': 1,
+ 'tree_method': 'auto',
+ 'use_label_encoder': True,
+ 'validate_parameters': 1,
+ 'verbose': -10,
+ 'verbosity': 0}
+
+18 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': False,
+ 'with_std': False}
+
+18 - xgboostclassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.7,
+ 'eta': 0.1,
+ 'gamma': 0.1,
+ 'gpu_id': -1,
+ 'importance_type': 'gain',
+ 'interaction_constraints': '',
+ 'learning_rate': 0.100000001,
+ 'max_delta_step': 0,
+ 'max_depth': 9,
+ 'max_leaves': 511,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'monotone_constraints': '()',
+ 'n_estimators': 25,
+ 'n_jobs': 1,
+ 'num_parallel_tree': 1,
+ 'objective': 'reg:logistic',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 1.7708333333333335,
+ 'scale_pos_weight': 1,
+ 'subsample': 0.9,
+ 'tree_method': 'auto',
+ 'use_label_encoder': True,
+ 'validate_parameters': 1,
+ 'verbose': -10,
+ 'verbosity': 0}
+
+13 - maxabsscaler
+{'copy': True}
+
+13 - sgdclassifierwrapper
+{'alpha': 7.5510448979591835,
+ 'class_weight': 'balanced',
+ 'eta0': 0.001,
+ 'fit_intercept': True,
+ 'l1_ratio': 0.42857142857142855,
+ 'learning_rate': 'constant',
+ 'loss': 'modified_huber',
+ 'max_iter': 1000,
+ 'n_jobs': 1,
+ 'penalty': 'none',
+ 'power_t': 0.7777777777777777,
+ 'random_state': None,
+ 'tol': 0.0001}
+
+2 - maxabsscaler
+{'copy': True}
+
+2 - extratreesclassifier
+{'bootstrap': True,
+ 'ccp_alpha': 0.0,
+ 'class_weight': 'balanced',
+ 'criterion': 'gini',
+ 'max_depth': None,
+ 'max_features': 'sqrt',
+ 'max_leaf_nodes': None,
+ 'max_samples': None,
+ 'min_impurity_decrease': 0.0,
+ 'min_impurity_split': None,
+ 'min_samples_leaf': 0.01,
+ 'min_samples_split': 0.15052631578947367,
+ 'min_weight_fraction_leaf': 0.0,
+ 'n_estimators': 100,
+ 'n_jobs': 1,
+ 'oob_score': True,
+ 'random_state': None,
+ 'verbose': 0,
+ 'warm_start': False}
