@@ -89,7 +89,17 @@ smallest class is 3,692 and the number of samples in the training data is 32,950
 It identified VotingEnsemble as the best model stopping at iteration 29.
 ![AutoML Iteration Pipeline](AutoML-iter_pipeline.png)
 
-Using the print_model function on the AutoML VotingEnsemble revealed greater details on the model.
+Using the print_model function on the AutoML VotingEnsemble revealed greater details on the model. I have attached this
+output as a text file called *print_model_AutoML_output.txt*. It shows the several classifiers were used with different 
+weightings as shown below
+
+- xgboost classifier 1 (0.1)
+- lightgbmclassifier (0.2)
+- lightgbmclassifier (0.2)
+- xgboost classifier 2 (0.1)
+- xgboost classifier 3 (0.1)
+- sgdclassifierwrapper (0.1)
+- extratreesclassifier (0.1)
 
 
 Although most models perform fairly similar, AutoML found that the best performing model was VotingEnsemble 
