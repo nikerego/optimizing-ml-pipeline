@@ -23,9 +23,9 @@ The best performing HyperDrive Logistic Regression model came in with an accurac
 
 The first part of the process involves setting up the pipeline for cleaning and preprocessing the data for use in our ML pipelines.
 The dataset is called bankmarketing_train.csv file and is stored on Azure blob storage. The dataset contains data on 
-applicants for a banking service. The dataset contains 32950 observations and has 21 columns. We are looking to predict 
-the value of y as 'yes' or 'no'. The preprocessing is accomplished with the help of `train.py`. This function returns two
-datasets x and y. x is the feature dataset with 39 columns and y is the target dataset.
+applicants for a banking service. The dataset contains 32,950 observations and 21 columns. We are looking to predict 
+the value of y as 'yes' or 'no'. The preprocessing is accomplished with the help of `train.py`. This script has a function 
+*clean_data* which returns two datasets x and y. x is the feature dataset with 39 columns and y is the target dataset.
 
 The classification model used for the HyperDrive pipeline is a Logistic Regression model. the logistic model is a statistical
 model that models the probability of an event taking place by having the log-odds for the event be a linear combination 
